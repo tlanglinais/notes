@@ -1,6 +1,6 @@
 # Basics
 
-### Operators
+## Operators
 
 | Operator | Operation        | Example  |
 | -------- | ---------------- | -------- |
@@ -12,7 +12,7 @@
 | %        | Modulus          | 22 % 8   |
 | \*\*     | Exponent         | 2 \*\* 3 |
 
-### Data Types
+## Data Types
 
 | Data Type | Examples            |
 | --------- | ------------------- |
