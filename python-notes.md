@@ -653,3 +653,115 @@ import fibo as fib
 
 from fibo import fib as fibonacci
 ```
+
+# Input and Output
+
+## Reading and writing files
+
+`open()` - returns a file object, most commonly used with 2 args: `(filename, mode)`
+Modes:
+
+-   `r` - Read
+-   `w` - Write
+-   `a` - Append
+-   `r+` - Both read and write
+
+It is good practice to use the `with` keyword when dealing with file objects. The advantage is that the file is properly closed after its suite finished:
+
+```
+with open('workfile') as f:
+  read_data = f.read()
+
+# Check to see if file is closed
+f.closed # True
+```
+
+### Methods
+
+-   `read()` - reads the entire file and returns it as a string
+-   `readline()` - reads a single line from the file
+
+```
+for line in f:
+  print(line, end='')
+```
+
+-   `write(string)` - writes the contents of `string` to the file, returning the # of chars written
+
+## JSON
+
+```
+import json
+json.dumps([1, 'simple', 'list'])
+# '[1, "simple", "list"]'
+```
+
+-   `dumps()` - serialized the object to a text file
+
+-   `load()` - decodes json to an object
+
+```
+x = json.load(f)
+```
+
+# Errors and Exceptions
+
+Revisit
+
+# Classes
+
+Attributes may be read-only or writable.
+
+## Scopes
+
+> If no `global` or `nonlocal` statement is in effect, assignments to names always go into the innermost scope.
+
+The `global` statement can be used to indicate that particular variables live in the global scope and should be rebound there.
+
+The `nonlocal` statement indicates that particular variables live in an enclosing scope and should be rebound there.
+
+```
+def scope_test():
+  def do_local():
+    spam = "local spam"
+
+  def do_nonlocal():
+    nonlocal spam
+    spam = "nonlocal spam"
+
+  def do_global():
+    global spam
+    spam = "global spam"
+
+  spam = "test spam"
+  do_local()
+  print("After local assignment: ", spam)
+  do_nonlocal()
+  print("After nonlocal assignment: ", spam)
+  do_global()
+  print("After global assignment: ", spam)
+
+scope_test()
+print("In global scope: ", spam)
+```
+
+-   `nonlocal` changed the function's binding of spam
+-   `global` changed the module-level binding of spam
+
+## Definition
+
+Class definitions must be executed before they have any effect. When a class definition is entered, a new namespace is created, and used as the local scope.
+
+### Class Objects
+
+Class objects support two kinds of operations: attribute references and instantiation.
+
+**Attribute references** ust the standard syntax used for all attribute references: `obj.name`.
+
+```
+class MyClass:
+  i = 12345
+
+  def f(self):
+    return 'hello world'
+```
