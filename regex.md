@@ -15,7 +15,7 @@
 | `+`           | Match any expression **1 or more** times. `[abc]+` (1 or more of any a,b,c) |
 | `*`           | Match any expression **0 or more** times. `.*` (0 or more of **any** char)  |
 | `?`           | Optional character. `files?` will match **file** and **files**.             |
-| `\s`          | Match any whitespace, **space**`..` **tab**`\t` **newline**`(\n)`, etc.     |
+| `\s`          | Match any whitespace, **space**`\s` **tab**`\t` **newline**`(\n)`, etc.     |
 | `\S`          | Match any non-whitespace character                                          |
 | `^`           | Match a line that **begins** with expression ex. `^Mission`                 |
 | `$`           | Match a line that **ends** with expression ex. `success$`                   |
